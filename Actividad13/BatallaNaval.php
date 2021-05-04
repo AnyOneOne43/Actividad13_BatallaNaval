@@ -1,4 +1,34 @@
 <?php
+    //Aqui checa la posición de las naves (aleatoriamente), primero checasi es horizontal o vertical, despues checa, primero la de 4 y luego la de 3
+    /*$PosicionA;
+    $PosicionB;*/
+    $Orientación;
+
+    $Orientación = rand(1, 4);
+    echo $Orientación;
+    $PosicionC[0]=rand(2, 9)."\n";
+    echo $PosicionC[0]; 
+    $PosicionC[1]=rand(2, 9)."\n";
+    echo $PosicionC[1]; 
+    //Para el indice 0, es el eje x, para el indice 1, es el eje Y
+    $PosicionB[0] = $PosicionC[0];
+    $PosicionB[1] = $PosicionC[1];
+    $PosicionA[0] = $PosicionC[0];
+    $PosicionA[1] = $PosicionC[1];
+    /*echo $PosicionB[0];
+    echo $PosicionB[1];
+    echo $PosicionA[0];
+    echo $PosicionA[1];  */
+    if($Orientación == 1 || $Orientación == 3)
+    {
+        $PosicionA[1]--;
+        $PosicionB[1]++;
+    }elseif($Orientación == 2 || $Orientación ==4)
+    {
+      $PosicionA[0]--;
+      $PosicionB[0]++;
+    }    
+    
     if ($_POST['Enviar']=="Disparar!!")
     {
         
@@ -54,7 +84,7 @@
 
     echo "<form action='BatallaNaval.php' method='post'>";
       echo "Posición X(Letra):<input type='text' name='Letra'>";
-      echo "Posición Y(Número):<input type='text' name='Num'>";
+      echo "Posición Y(Número):<input type='number' name='Num'>";
       echo "<input type='hidden' name='vidad' value=$vida>";
       echo "<input type='submit' name='Enviar' value='Disparar!!'>";
     echo "</form>";
