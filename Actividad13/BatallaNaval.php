@@ -51,7 +51,6 @@
             echo "Indice Invalido";
             break;
       }
-
     
       if($N>10){
           echo "Numero Invalido";
