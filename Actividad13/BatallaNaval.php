@@ -1,10 +1,81 @@
 <?php
-        //Aqui checa la posición de las naves (aleatoriamente), primero checasi es horizontal o vertical, despues checa las coordenadas de cada nave
+        
+    $K=0;
+    $barco3=0;
+    $barco4=0; 
+    if (isset($_POST['Enviar']))
+     {
+         
+        $vida=$_POST['vidad'];
+        
+        $L=$_POST['Letra'];
+        $N=$_POST['Num'];
+        $L=strtoupper($L);
+        $M= $L .$N;
+        $r=$_POST['c'];
+        $c=$r .$M .", ";
+        
+
+        switch($L){
+          case 'A':
+            $L=1;
+            break;
+          case 'B':
+            $L=2;
+            break;
+          case 'C':
+            $L=3;
+            break;
+          case 'D':
+            $L=4;
+            break;
+          case 'E':
+            $L=5;
+            break;
+          case 'F':
+            $L=6;
+            break;
+          case 'G':
+            $L=7;
+            break;
+          case 'H':
+            $L=8;
+            break;
+          case 'I':
+            $L=9;
+            break;
+          case 'J':
+            $L=10;
+            break;
+          default:
+            echo "Indice Invalido";
+            break;
+      }
+
+    
+      if($N>10){
+          echo "Numero Invalido";
+      }
+      $barco3=$_POST['barco3'];
+      $barco4=$_POST['barco4'];
+
+      var_dump($_POST);
+      echo "<br>";
+      var_dump($_POST["barco3"]);
+      echo "<br>";
+      var_dump($_POST["barco4"]);
+     }
+     else {
+         
+         $vida=8;
+         $L="0";
+         $N="0";
+         //Aqui checa la posición de las naves (aleatoriamente), primero checasi es horizontal o vertical, despues checa las coordenadas de cada nave
         /*$PosicionA;
         $PosicionB;*/
         //Se inicia con la nave de 3
         //Orientación; 1=arriba, 2=derecha, 3=abajo, 4=izquierda
-        $K;
+        
         $contador=0;
         $contador1=0;
         $PosicionB_ejeX;
@@ -46,22 +117,23 @@
             //echo "Hola4";
           }
         }
-        echo $Orientación."O <br>";        
+        /*echo $Orientación."O <br>";        
         echo $PosicionA_ejeX."AX <br>";
         echo $PosicionA_ejeY."AY <br>";
         echo $PosicionB_ejeX."BX <br>";
         echo $PosicionB_ejeY."BY <br>";
         echo $PosicionC_ejeX."CX <br>";
-        echo $PosicionC_ejeY."CY <br>";
+        echo $PosicionC_ejeY."CY <br>";*/
         
-        //Crear array del barco con las coordenadas
-        $barco3= [$PosicionA_ejeX,
+        //Crear array del barco3 con las coordenadas
+        $barco3= $PosicionA_ejeX.'-'.$PosicionA_ejeY.'-'.$PosicionB_ejeX.'-'.$PosicionB_ejeY.'-'.$PosicionC_ejeX.'-'.$PosicionC_ejeY;
+        /*[$PosicionA_ejeX,
                   $PosicionA_ejeY,
                   $PosicionB_ejeX,
                   $PosicionB_ejeY,
                   $PosicionC_ejeX, 
                   $PosicionC_ejeY
-                  ];
+                  ];*/
         var_dump($barco3);
         //barco 4
         $Orientación = rand(1, 4);
@@ -101,7 +173,8 @@
           }
         }
         //Crear array del barco4 con las coordenadas
-        $barco4= [$Posiciona_ejeX,
+        $barco4= $Posiciona_ejeX.'-'.$Posiciona_ejeY.'-'.$Posicionb_ejeX.'-'.$Posicionb_ejeY.'-'.$Posicionc_ejeX.'-'.$Posicionc_ejeY.'-'.$Posiciond_ejeX.'-'.$Posiciond_ejeY;
+        /*$barco4= [$Posiciona_ejeX,
                   $Posiciona_ejeY,
                   $Posicionb_ejeX,
                   $Posicionb_ejeY,
@@ -109,7 +182,7 @@
                   $Posicionc_ejeY,
                   $Posiciond_ejeX, 
                   $Posiciond_ejeY
-                  ];      
+                  ]; */     
       echo "<br>";
         
         echo $Orientación."O <br>";        
@@ -122,67 +195,6 @@
         echo $Posiciond_ejeX."dX <br>";
         echo $Posiciond_ejeY."dY <br>";
         var_dump($barco4);
-      
-     if ($_POST['Enviar']=="Disparar!!")
-     {
-         
-        $c=$_POST['cuenta'];
-        $vida=$_POST['vidad'];
-        
-         $L=$_POST['Letra'];
-        $N=$_POST['Num'];
-        $M= $L .$N;
-        $array=$_POST['arrg[]'];
-        $array[$c]=$M;
-        $c++;
-
-        switch($L){
-          case 'A':
-            $L=1;
-            break;
-          case 'B':
-            $L=2;
-            break;
-          case 'C':
-            $L=3;
-            break;
-          case 'D':
-            $L=4;
-            break;
-          case 'E':
-            $L=5;
-            break;
-          case 'F':
-            $L=6;
-            break;
-          case 'G':
-            $L=7;
-            break;
-          case 'H':
-            $L=8;
-            break;
-          case 'I':
-            $L=9;
-            break;
-          case 'J':
-            $L=10;
-            break;
-          default:
-            echo "Indice Invalido";
-            break;
-      }
-    
-      if($N>10){
-          echo "Numero Invalido";
-      }
-     }
-     else {
-         
-         $vida=8;
-         $c=0;
-         $array=array(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-         $L="0";
-         $N="0";
          
      }
 
@@ -193,6 +205,7 @@
      else{
       $Findeljuego=1;
      }
+     var_dump($_POST);
 
   if($Findeljuego==1)
   {
@@ -201,21 +214,27 @@
          for($j=0;$j<=10;$j++){
                  $arreglo[$i][$j]="<img src='./Mar.png' width='30' height='30'></th>";
                  
-                /* if($L==4){
+                if($L==4 && $N==5){
                     $K=$L;
-                  } 
-                  else{
-                    $K=$_POST['k']; 
+                    $Y=$N;
+                  } else
+                  {
+                    $arreglo[$N][$L]="<img src='./error.png' width='30' height='30'></th>";
+                    $perderv=1;
+                    
+                    if ($_POST['Enviar']=="Disparar!!"){
+                      $K=$_POST['k'];
+                      $Y=$_POST['y']; 
+                    }
                   }
-                 if($K==4)
+                 if($K==4 && $Y==5)
                  {
-                  $arreglo[3][5]="<img src='./Barco.png' width='30' height='30'></th>";
-                 }
-                 if($N==3)
-                 {
-                  $arreglo[7][9]="<img src='./error.png' width='30' height='30'></th>";
-                  $perderv=1;
-                 }*/
+                  $arreglo[$Y][$K]="<img src='./Barco.png' width='30' height='30'></th>";
+                 } 
+                 
+                  
+                
+                 
            }
        }
      echo "<h1>Batalla Naval</h1>";
@@ -234,7 +253,7 @@
      echo "</h3>";
      echo "Historial de Disparos:";
      echo "<br>";
-     print_r($array);
+     echo $c;
      echo "<br><br>";
  
      echo "<table border=1>";
@@ -265,18 +284,18 @@
      echo "</table>";
      echo "<br>";
 
-    $r=$c-1;
-
 
      echo "<form action='BatallaNaval.php' method='post'>";
        echo "Posición X(Letra):<input type='text' name='Letra' required>";
        echo "Posición Y(Número):<input type='number' name='Num' min='1' max='10' required>";
        echo "<input type='hidden' name='vidad' value=$vida>";
-       echo "<input type='hidden' name='cuenta' value=$c>";
-       echo "<input type='hidden' name='arrg[]' value=$array[$r]>";
+       echo "<input type='hidden' name='c' value=$c>";
        echo "<input type='hidden' name='k' value=$K>";
+       echo "<input type='hidden' name='y' value=$Y>";
        echo "<input type='hidden' name='fin' value=$Findeljuego>";
        echo "<input type='submit' name='Enviar' value='Disparar!!'>";
+       echo "<input type='hidden' name='barco3' value=$barco3>";
+       echo "<input type='hidden' name='barco4' value=$barco4>";
      echo "</form>";
      echo "<br><br>";
   }
