@@ -4,7 +4,7 @@
     $valid_coord=0;
     $barco3=0;
     $barco4=0; 
-    if(isset($_POST['Enviar'] ))
+    if (isset($_POST['Enviar']))
      {
          
         $vida=$_POST['vidad'];
@@ -128,7 +128,7 @@
         //Crear array del barco3 con las coordenadas
         $barco3= $PosicionA_ejeX.'-'.$PosicionA_ejeY.'-'.$PosicionB_ejeX.'-'.$PosicionB_ejeY.'-'.$PosicionC_ejeX.'-'.$PosicionC_ejeY;
         
-        //var_dump($barco3);
+        var_dump($barco3);
         //barco 4
         $Orientación = rand(1, 4);
         while($contador1 == 0){
@@ -191,7 +191,7 @@
      else{
       $Findeljuego=1;
      }
-     
+     var_dump($_POST);
 
   if($Findeljuego==1)
   {
@@ -270,7 +270,7 @@
      echo "<br>";
 
 
-       echo "<form action='BatallaNaval.php' method='post'>";
+     echo "<form action='BatallaNaval.php' method='post'>";
        echo "Posición X(Letra):<input type='text' name='Letra' required>";
        echo "Posición Y(Número):<input type='number' name='Num' min='1' max='10' required>";
        echo "<input type='hidden' name='vidad' value=$vida>";
