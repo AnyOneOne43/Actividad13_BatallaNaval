@@ -73,9 +73,10 @@
       $barco3=$_POST['barco3'];
       $barco4=$_POST['barco4'];
 
+      /*  Con esta funcion se puede ver la posicion de los barcos (muestra 'x' y 'y' de cada casilla)
       var_dump($_POST["barco3"]);
       echo "<br>";
-      var_dump($_POST["barco4"]);
+      var_dump($_POST["barco4"]);*/
      }
      else {
          
@@ -131,24 +132,9 @@
             //echo "Hola4";
           }
         }
-        /*echo $Orientación."O <br>";        
-        echo $PosicionA_ejeX."AX <br>";
-        echo $PosicionA_ejeY."AY <br>";
-        echo $PosicionB_ejeX."BX <br>";
-        echo $PosicionB_ejeY."BY <br>";
-        echo $PosicionC_ejeX."CX <br>";
-        echo $PosicionC_ejeY."CY <br>";*/
         
         //Crear varaible del barco3 con las coordenadas
         $barco3= $PosicionA_ejeX.'-'.$PosicionA_ejeY.'-'.$PosicionB_ejeX.'-'.$PosicionB_ejeY.'-'.$PosicionC_ejeX.'-'.$PosicionC_ejeY;
-        /*[$PosicionA_ejeX,
-                  $PosicionA_ejeY,
-                  $PosicionB_ejeX,
-                  $PosicionB_ejeY,
-                  $PosicionC_ejeX, 
-                  $PosicionC_ejeY
-                  ];*/
-        //var_dump($barco3);
         //barco 4
         $Orientación = rand(1, 4);
         while($contador1 == 0){
@@ -188,18 +174,8 @@
         }
         //Crear array del barco4 con las coordenadas
         $barco4= $Posiciona_ejeX.'-'.$Posiciona_ejeY.'-'.$Posicionb_ejeX.'-'.$Posicionb_ejeY.'-'.$Posicionc_ejeX.'-'.$Posicionc_ejeY.'-'.$Posiciond_ejeX.'-'.$Posiciond_ejeY;
-        /*$barco4= [$Posiciona_ejeX,
-                  $Posiciona_ejeY,
-                  $Posicionb_ejeX,
-                  $Posicionb_ejeY,
-                  $Posicionc_ejeX, 
-                  $Posicionc_ejeY,
-                  $Posiciond_ejeX, 
-                  $Posiciond_ejeY
-                  ]; */     
-      echo "<br>";
         
-        echo $Orientación."O <br>";        
+        /*echo $Orientación."O <br>";        
         echo $Posiciona_ejeX."AX <br>";
         echo $Posiciona_ejeY."AY <br>";
         echo $Posicionb_ejeX."BX <br>";
@@ -207,8 +183,8 @@
         echo $Posicionc_ejeX."CX <br>";
         echo $Posicionc_ejeY."CY <br>";
         echo $Posiciond_ejeX."dX <br>";
-        echo $Posiciond_ejeY."dY <br>";
-        //var_dump($barco4);
+        echo $Posiciond_ejeY."dY <br>";*/
+      
          
      }
      if(isset($_POST['Finde'])){
@@ -221,7 +197,6 @@
      else{
       $Findeljuego=1;
      }
-     var_dump($_POST);
 
   if($Findeljuego==1)
   {
@@ -459,13 +434,5 @@
       echo "<h1>Ganaste</h1>";
       echo "<h2>Vidas:</h2>" .$vida;
     }
-    //Opcion volver
-    /* $vida=8;
-    $gano=0;
-    $Findeljuego=1;
-    $c=0;
-    echo "<form action='BatallaNaval.php' method='post'>";
-     echo"<input type='submit' name='Enviar' value='Disparar!!'>";
-     echo "</form>";*/
   }
  ?>
